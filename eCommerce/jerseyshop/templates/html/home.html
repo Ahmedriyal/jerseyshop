@@ -1,0 +1,69 @@
+{% extends 'html/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- ----- Body | Image Slider ----- -->
+<div id="slider">
+  <figure>
+    <img src="{% static 'img/argbg.jpg' %}">
+    <img src="{% static 'img/juv.jpg' %}">
+    <img src="{% static 'img/mad.jpg' %}">
+    <img src="{% static 'img/juv.jpg' %}">
+    <img src="{% static 'img/argbg.jpg' %}">
+  </figure>
+</div>
+
+
+<!-- ----- Club Jerseys ----- -->
+<div class="small-container">
+  <h2 class="title">Club Jerseys</h2>
+  <div class="row">
+    {% for club_jersey in club_jersey %}
+    <div class="col-4">
+      {% if club_jersey.availability == False %}
+      <img src="{{club_jersey.image.url}}" alt="">
+      {% else %}
+      <a href="{% url 'club_jersey_details' club_jersey.id %}">
+        <img src="{{club_jersey.image.url}}" alt="">
+      </a>
+      {% endif %}
+      <h4>{{club_jersey.title}}  <small>({{club_jersey.type}})</small></h4>
+      <p>Tk. {{club_jersey.price}}</p>
+      {% if club_jersey.availability == False %}
+      <p class="stock">Out of Stock</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="btn"><a class="forward" href="{% url 'club' %}">See more</a></div>
+</div>
+
+<!-- ----- National Team Jerseys ----- -->
+<div class="small-container">
+  <h2 class="title">National Team Jerseys</h2>
+  <div class="row">
+    {% for national_jersey in national_jersey %}
+    <div class="col-4">
+      {% if national_jersey.availability == False %}
+      <img src="{{national_jersey.image.url}}" alt="">
+      {% else %}
+      <a href="{% url 'national_jersey_details' national_jersey.id %}">
+        <img src="{{national_jersey.image.url}}" alt="">
+      </a>
+      {% endif %}
+      <h4>{{national_jersey.title}}  <small>({{national_jersey.type}})</small></h4>
+      <p>Tk. {{national_jersey.price}}</p>
+      {% if national_jersey.availability == False %}
+      <p class="stock">Out of Stock</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="btn"><a class="forward" href="{% url 'country' %}">See more</a></div>
+</div>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <script type="text/javascript">
+        var user = '{{request.user}}'
+
+        function getToken(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getToken('csrftoken');
+    </script>
+</head>
+<body>
+<nav class="header">
+
+    <!-- ----- Navigation Menu ----- -->
+    <div class="wrapper">
+        <div class="navbar">
+            <div><a class="logo" href="{% url 'home' %}">JerseyShop</a></div>
+            <nav>
+
+            </nav>
+            <div class="btn-cart"><a class="backward" href="{% url 'home' %}">Continue Shopping</a></div>
+        </div>
+    </div>
+</nav>
+
+<!-- ----- Cart Body ----- -->
+
+<div class="small-container">
+    <h1 class="checkout-header">Shipping Info</h1>
+    <div class="row-5">
+        <div class="col-lg-6">
+            <div class="box-element" id="form-wrapper">
+                <form action="" method="POST" enctype="multipart/form-data" id="form">
+                    {% csrf_token %}
+                    <div class="form-field">
+                        <label for="name">Name</label>
+                        <input required class="form-control" type="text" name="name" placeholder="Name...">
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Email</label>
+                        <input required class="form-control" type="email" name="email" placeholder="Email...">
+                    </div>
+                    <div class="form-field">
+                        <label for="mobileNo">Mobile Number</label>
+                        <input required class="form-control" type="text" name="mobileNo" placeholder="Mobile Number...">
+                    </div>
+                    <div class="form-field">
+                        <label for="address">Address</label>
+                        <input required class="form-control" type="text" name="address" placeholder="Enter details address...">
+                    </div>
+                    <input id="form-button" class="continue" type="submit" value="Continue">
+                </form>
+            </div>
+            <div class="box-element hidden" id="payment-info">
+                <small>Payment Option</small>
+                <button id="make-payment">Make Payment</button>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="box-element">
+                <h1 class="checkout-header">Order Summary</h1>
+                {% for item in items %}
+                <div class="cart-row-1">
+                    <div style="flex:1"><img class="row-image-1" src="{{item.club_jersey.image.url}}{{item.national_jersey.image.url}}"></div>
+                    <div style="flex:3"><h4 class="table-content">{{item.club_jersey.title}}{{item.national_jersey.title}} <small>({{item.club_jersey.type}}{{item.national_jersey.type}})</small></h4></div>
+                    <div style="flex:1"><h4 class="table-content">{{item.size}}</h4></div>
+                    <div style="flex:1"><h4 class="table-content">Tk. {{item.club_jersey.price}}{{item.national_jersey.price}}</h4></div>
+                    <div style="flex:1"><h4 class="table-content">{{item.quantity}}</h4></div>
+                    <div style="flex:1"><h4 class="table-content">Tk. {{item.get_total}}</h4></div>
+                </div>
+                {% endfor %}
+                <h5 class="summary">Items: {{order.get_cart_items}}</h5>
+                <h5 class="summary">Total: Tk. {{order.get_cart_total}}</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'html/footer.html' %}
+
+<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+<script type="text/javascript">
+    var total = '{{order.get_cart_total}}'
+    var form = document.getElementById('form')
+
+    form.addEventListener('submit', function(e){
+        e.preventDefault()
+        console.log('form submitted')
+        document.getElementById('form-button').classList.add('hidden')
+        document.getElementById('payment-info').classList.remove('hidden')
+    })
+
+    document.getElementById('make-payment').addEventListener('click', function(e){
+        submitFormData()
+    })
+
+    function submitFormData(){
+        console.log('Payment Button Clicked')
+
+        var shippingInfo = {
+            'name':null,
+            'email':null,
+            'mobileNo':null,
+            'address':null,
+            'total':total,
+        }
+
+        if(user != 'AnonymousUser'){
+            shippingInfo.name = form.name.value
+            shippingInfo.email = form.email.value
+            shippingInfo.mobileNo = form.mobileNo.value
+            shippingInfo.address = form.address.value
+        }
+
+        var url = '/process_order/'
+        fetch(url,{
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken,
+            },
+            body:JSON.stringify({'form':shippingInfo}
+            )
+        })
+        .then((response) => response.json())
+
+        .then((data) =>{
+            console.log('Success:', data);
+            alert('Transaction complete');
+            window.location.href = "{% url 'home' %}"
+        })
+    }
+</script>
+
+</body>
+</html>

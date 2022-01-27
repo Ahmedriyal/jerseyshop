@@ -1,0 +1,51 @@
+{% extends 'html/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="bg">
+  <img src="{% static 'img/Euro500.jpg' %}">
+</div>
+
+<!-- ----- National Team Jerseys ----- -->
+<div class="small-container">
+  <h1 class="big-title">
+    National Team Jersey
+  </h1>
+  <div class="row">
+    {% for national_jersey in page_obj %}
+    <div class="col-4">
+      {% if national_jersey.availability == False %}
+      <img src="{{national_jersey.image.url}}" alt="">
+      {% else %}
+      <a href="{% url 'national_jersey_details' national_jersey.id %}">
+        <img src="{{national_jersey.image.url}}" alt="">
+      </a>
+      {% endif %}
+      <h4>{{national_jersey.title}}  <small>({{national_jersey.type}})</small></h4>
+      <p>Tk. {{national_jersey.price}}</p>
+      {% if national_jersey.availability == False %}
+      <p class="stock">Out of Stock</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- ----- Page Buttons | 20 jerseys per page ----- -->
+  <div class="page-btn">
+    <span class="step-links">
+      {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-arrow-left"></i></a>
+      {% endif %}
+      {% if page_obj.has_next %}
+      <a href="?page{{ page_obj.number }}">1</a>
+      <a href="?page=2">2</a>
+      <a href="?page=3">3</a>
+      <a href="?page={{ page_obj.next_page_number }}"><i class="fas fa-arrow-right"></i></a>
+      {% endif %}
+    </span>
+  </div>
+
+</div>
+
+{% endblock %}

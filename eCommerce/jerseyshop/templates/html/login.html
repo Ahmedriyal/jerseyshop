@@ -1,0 +1,40 @@
+{% extends 'html/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="small-container">
+    <div class="flex">
+        <div class="signIn-col">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <h1 class="signin-account"><i class="far fa-user"></i>Sign In</h1>
+            <form class="formsignIn" action="login" method="POST">
+                {% csrf_token %}
+                <p class="signin-username">Username</p>
+                <input class="signin-form-input" type="text" name="username" id="username" placeholder="username">
+
+                <p class="signin-password">Password</p>
+                <input class="signin-form-input" type="password" name="password" id="password" placeholder="password">
+
+                <div class="btn2">
+                    <button class="btn-signup">Sign In</button>
+                </div>
+            </form>
+        </div>
+        <div class="signUp-col">
+            <h1 class="signup-title">Don't have an account?</h1>
+
+            <div class="signup-btn2">
+                <a class="btn-signup text-dec" href="{% url 'register' %}">sign up</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

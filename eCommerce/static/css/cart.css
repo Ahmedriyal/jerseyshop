@@ -1,0 +1,132 @@
+.cart-header{
+    margin-bottom: 15px;
+    font-size: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.btn-cart{
+    display: inline-block;
+    color: white;
+    background: #101820FF;
+    padding: 8px 30px;
+    transition: background .5s;
+    cursor: pointer;
+}
+
+.btn-cart:hover{
+    background: #616161;
+}
+
+.backward{
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-checkout{
+    display: inline-block;
+    color: white;
+    background: #101820FF;
+    padding: 10px 30px;
+    transition: background .5s;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.btn-checkout:hover{
+    background: #616161;
+}
+
+.checkout{
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.box-element{
+    box-shadow: hsl(0, 0%, 90%) 0 0 16px;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.box-element .table{
+    width:100%
+}
+
+.box-element .table .total{
+    float: left;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 17px;
+}
+
+.box-element .cart-items{
+    margin-top: 70px;
+}
+
+.cart-box{
+    border: 1px solid #ececec;
+    padding: 20px 10px;
+}
+
+.box-element .cart-row{
+    display: flex;
+    align-items: flex-stretch;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #d9d9d9;
+    align-items: center;
+}
+
+.table-header{
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.box-element .cart-row-1{
+    display: flex;
+    align-items: flex-stretch;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.row-image{
+    width: 100px;
+}
+
+.btn-remove{
+    display: inline-block;
+    color: white;
+    padding: 6px 30px;
+    transition: background .5s;
+    margin-left: 83%;
+    cursor: pointer;
+    border: 1px solid #c8c0c0;
+    background-color: white;
+}
+
+.btn-remove:hover{
+    background: #FA8072;
+}
+
+.remove{
+    color: black;
+    text-decoration: none;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.btn-remove .remove .fas{
+    margin-right: 5px
+}
+

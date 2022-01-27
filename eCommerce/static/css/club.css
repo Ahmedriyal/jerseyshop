@@ -1,0 +1,33 @@
+.bg{
+    margin-top: 93px;
+    overflow: hidden;
+}
+
+.bg img{
+    position: relative;
+    width: 100%;
+    height: fit-content;
+}
+
+.big-title{
+    padding: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 5px;
+    font-size: 40px;
+}
+
+.page-btn span a{
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    background: #101820FF;
+    color: white;
+    padding: 2px 8px;
+    margin-left: 10px;
+}
+
+.page-btn span a:hover{
+    background: #616161;
+}

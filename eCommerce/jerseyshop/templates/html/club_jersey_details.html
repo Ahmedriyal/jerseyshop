@@ -1,0 +1,60 @@
+{% extends 'html/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<!-- Products Details  -->
+
+<div class="small-container single-product">
+    <div class="row-3">
+        <div class="col-2">
+            <div id="img-container">
+                <div id="lens"></div>
+                <img id="featured" src="{{club_jersey.image.url}}" alt="" width="100%">
+            </div>
+            <div class="small-img-row">
+                <div class="small-img-col">
+                    <img class="thumbnail active" src="{{club_jersey.small_image1URL}}" alt="" width="100%" class="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img class="thumbnail" src="{{club_jersey.small_image2URL}}" alt="" width="100%" class="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img class="thumbnail" src="{{club_jersey.small_image3URL}}" alt="" width="100%" class="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img class="thumbnail" src="{{club_jersey.small_image4URL}}" alt="" width="100%" class="small-img">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-2">
+            <h1 class="title-txt">{{club_jersey.title}} <small>({{club_jersey.type}})</small></h1>
+            <h4>Tk. {{club_jersey.price}}</h4>
+            <h4 class="txt"><strong>Replica Or Authentic:</strong> {{club_jersey.authenticity}}</h4>
+            <h4 class="txt"><strong>Type of Team Badge:</strong> {{club_jersey.team_badge}}</h4>
+            <form action="" method="POST" enctype="multipart/form-data" class="form-input">
+                {% csrf_token %}
+                <div class="form">
+                    <div class="form-row-1">
+                        {% include 'html/form.html' with form=form %}
+                    </div>
+                    <div class="form-row-2">
+                        <h5 class="size-chart" id="myBtn">Size Chart</h5>
+                        <div id="myModal" class="modal">
+<!--                            Modal content -->
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <img id="image" src="{% static 'img/Size_Chart2.png' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-1" type="submit">Add To Cart</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

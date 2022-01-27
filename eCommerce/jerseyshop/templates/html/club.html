@@ -1,0 +1,52 @@
+{% extends 'html/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="bg">
+  <img src="{% static 'img/500.png' %}">
+</div>
+
+<!-- ----- Club Jerseys ----- -->
+<div class="small-container">
+  <h1 class="big-title">
+    Club Jersey
+  </h1>
+  <div class="row">
+    {% for club_jersey in page_obj %}
+    <div class="col-4">
+      {% if club_jersey.availability == False %}
+      <img src="{{club_jersey.image.url}}" alt="">
+      {% else %}
+      <a href="{% url 'club_jersey_details' club_jersey.id %}">
+        <img src="{{club_jersey.image.url}}" alt="">
+      </a>
+      {% endif %}
+      <h4>{{club_jersey.title}} <small>({{club_jersey.type}})</small></h4>
+      <p>Tk. {{club_jersey.price}}</p>
+      {% if club_jersey.availability == False %}
+      <p class="stock">Out of Stock</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- ----- Page Buttons | 20 jerseys per page ----- -->
+  <div class="page-btn">
+    <span class="step-links">
+      {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-arrow-left"></i></a>
+      {% endif %}
+      {% if page_obj.has_next %}
+      <a href="?page{{ page_obj.number }}">1</a>
+      <a href="?page=2">2</a>
+      <a href="?page=3">3</a>
+      <a href="?page={{ page_obj.next_page_number }}"><i class="fas fa-arrow-right"></i></a>
+      {% endif %}
+    </span>
+  </div>
+
+</div>
+
+{% endblock %}

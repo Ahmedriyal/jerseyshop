@@ -1,0 +1,163 @@
+<nav class="header">
+  <!-- ----- Search Box ----- -->
+  <div class="search-container">
+    <div class="search_wrap search_wrap_1">
+      <form class="search_box" method="GET" action="{% url 'search_results' %}">
+        {% csrf_token %}
+        <input type="text" class="input" placeholder="search..." name="searched">
+        <button class="btn-3 btn_common" type="submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+    </div>
+    <div class="btn-4">
+      {% if user.is_authenticated %}
+      <a class="signIn" href="{% url 'logout' %}"><i class="fas fa-sign-in-alt"></i>Log Out</a>
+      {% else %}
+      <button class="signIn" onclick="openForm()" type="submit"><i class="fas fa-sign-in-alt"></i>Log In</button>
+      <div class="popup" id="myForm">
+        <div class="form-popup">
+          <span class="close" onclick="closeForm()">&times;</span>
+          <h1 class="popup-signin-account"><i class="far fa-user"></i>Sign In</h1>
+          <form action="\login" method="POST" class="popup-formsignIn">
+            {% csrf_token %}
+            <p class="popup-signin-username">Username</p>
+            <input class="popup-signin-form-input" type="text" name="username" id="username" placeholder="username">
+
+            <p class="popup-signin-password">Password</p>
+            <input class="popup-signin-form-input" type="password" name="password" id="password" placeholder="password">
+
+            <div class="popup-btn2">
+              <input type="submit" class="popup-btn-signin" value="Sign In">
+            </div>
+          </form>
+          <div class="popup-signup-title">Don't have an account?
+            <a class="popup-text" href="{% url 'register' %}">Sign Up</a>
+          </div>
+          <a href="" class="forgot">Forgot Password</a>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- ----- Navigation Menu ----- -->
+  <div class="wrapper">
+    <div class="navbar">
+      <div><a class="logo" href="{% url 'home' %}">JerseyShop</a></div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li>
+            <a href="{% url 'club' %}" class="desktop-item">Clubs</a>
+            <label for="showMega" class="mobile-item">Clubs</label>
+            <div class="mega-box">
+              <div class="content">
+
+                <div class="row-1">
+                  <div class="col-1">
+                    <ul class="mega-links">
+                      <li><a href="#">Real Madrid</a></li>
+                      <li><a href="#">Barcelona</a></li>
+                      <li><a href="#">Bayern Munich</a></li>
+                      <li><a href="#">AC Milan</a></li>
+                      <li><a href="#">Atlectico Madrid</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="row-1">
+                  <div class="col-1">
+                    <ul class="mega-links">
+                      <li><a href="#">Paris Saint-Germain</a></li>
+                      <li><a href="#">Inter Milan</a></li>
+                      <li><a href="#">Manchester City</a></li>
+                      <li><a href="#">Arsenal</a></li>
+                      <li><a href="#">Liverpool</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="row-1">
+                  <div class="col-1">
+                    <ul class="mega-links">
+                      <li><a href="#">Manchester United</a></li>
+                      <li><a href="#">Chelsea</a></li>
+                      <li><a href="#">Juventus</a></li>
+                      <li><a href="#">Tottenham</a></li>
+                      <li><a href="#">Borussia Dortmund</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="link">
+                <a href="" class="btn-2">Shop Clubs</a>
+              </div>
+
+            </div>
+          </li>
+          <li>
+            <a href="{% url 'country' %}" class="desktop-item">National Teams</a>
+            <label for="showMega" class="mobile-item">National Teams</label>
+            <div class="mega-box">
+              <div class="content">
+
+                <div class="row-1">
+                  <div class="col-1">
+                    <ul class="mega-links">
+                      <li><a href="#">Netharlands</a></li>
+                      <li><a href="#">Belgium</a></li>
+                      <li><a href="#">Mexico</a></li>
+                      <li><a href="#">Bangladesh</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="row-1">
+                  <div class="col-1">
+                    <ul class="mega-links">
+                      <li><a href="#">Argentina</a></li>
+                      <li><a href="#">Brazil</a></li>
+                      <li><a href="#">Spain</a></li>
+                      <li><a href="#">France</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="row-1">
+                  <div class="col-1">
+                    <ul class="mega-links">
+                      <li><a href="#">Germany</a></li>
+                      <li><a href="#">Portugal</a></li>
+                      <li><a href="#">Italy</a></li>
+                      <li><a href="#">Chile</a></li>
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="link">
+                <a href="" class="btn-2">Shop National Teams</a>
+              </div>
+            </div>
+          </li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="#"><i class="fas fa-user"></i> {{user.username}}</a></li>
+          {% else%}
+          <li><a href="#">Account</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+      <a class="cart" href="{% url 'cart' %}"><i class="fas fa-shopping-cart"></i></a>
+
+      <div id="cart-total"><p class="number">{{cartItems}}</p></div>
+      <!--        <div class="burger">-->
+      <!--            <div class="line"></div>-->
+      <!--            <div class="line"></div>-->
+      <!--            <div class="line"></div>-->
+      <!--        </div>-->
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+}
+
+.header{
+    border-bottom: 1px solid lightgrey;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 2px 4px 0 rgba(44, 44, 44, 0.2);
+}
+
+/* ----- Serach Box ----- */
+.search-container{
+	background: #101820FF;
+    padding: 5px 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-container .input{
+	border: 0;
+	outline: none;
+	color: black;
+    font-weight: 500;
+}
+
+.search_wrap .search_box{
+	position: relative;
+    width: 350px;
+    height: 22px;
+    margin-left: 500px;
+}
+
+.search_wrap .search_box .input{
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10px 10px;
+    font-size: 12px;
+}
+
+.search_wrap .search_box .btn-3{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 40px;
+	height: 100%;
+	background: #101820FF;
+	z-index: 1;
+	cursor: pointer;
+	border: none;
+}
+
+.search_wrap .search_box .btn-3:hover{
+	background: #616161;
+}
+
+.search_wrap .search_box .btn-3.btn_common .fas{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	color: #fff;
+	font-size: 15px;
+}
+
+.search-container .btn-4{
+    cursor: pointer;
+}
+
+.search-container .btn-4 .signIn{
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 15px;
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.search-container .btn-4 .signIn .fas{
+    margin-right: 5px;
+}
+
+/* ----- Navigation Menu ----- */
+
+.navbar{
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo{
+    color: black;
+    font-family: 'Lobster';
+    font-size: 25px;
+    text-decoration: none;
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+}
+
+.wrapper .nav-links{
+    display: inline-block;
+    list-style-type: none;
+}
+
+.nav-links li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.nav-links li a{
+    text-decoration: none;
+    color: black;
+    font-family: 'Montserrat';
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover{
+    color: #f2aa4cff;
+}
+
+.nav-links .mobile-item{
+  display: none;
+}
+
+.nav-links li:hover .mega-box{
+  transition: all 0.3s ease;
+  /* top: 50px; */
+  opacity: 1;
+  visibility: visible;
+}
+
+.mega-box{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 78px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mega-box .content{
+  background: white;
+  padding: 25px 150px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+
+.mega-box .content .row-1{
+  width: 31%;
+  text-align: left;
+}
+
+.content .row-1 header{
+    color: Black;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: Montserrat;
+    text-transform: uppercase;
+    text-align: left;
+    margin-left: 16px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid black;
+}
+
+.content .row-1 .mega-links{
+    margin-left: -40px;
+    border-left: 1px solid rgba(255,255,255,0.09);
+}
+
+.row-1 .mega-links li{
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.row-1 .mega-links li a{
+    padding: 0px;
+    padding: 0 35px;
+    color: black;
+    font-size: 11px;
+    display: block;
+    font-family: Montserrat;
+    margin: 5px 0px;
+}
+
+.row-1 .mega-links li a:hover{
+    color: #f2aa4cff;
+}
+
+.link{
+    background: black;
+    padding: 20px 158px;
+    text-align: left;
+    width: 100%;
+}
+
+.link .btn-2{
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.btn-2:hover{
+    color: #f2aa4cff;
+}
+
+.cart{
+    font-size: 22px;
+    color: black;
+}
+
+.cart:hover{
+    cursor: pointer;
+    color: #f2aa4cff;
+}
+
+#cart-total{
+    height: 17px;
+	background-color: red;
+	width: 15px;
+	border-radius: 50%;
+	position: relative;
+    top: -10px;
+    left: -10px;
+}
+
+.number{
+    text-align: center;
+    color: #fff;
+    font-size: 11px;
+    margin-top: 1px;
+}
+
+/* .burger{
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 15px;
+    margin-left: 15px;
+}
+
+.line{
+    width: 30px;
+    background-color: black;
+    margin: 5px 3px;
+    height: 3px;
+} */
+
+
+/* ----- Popup Sign In Form ----- */
+.popup{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  position: fixed;
+  z-index: 9;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: white;
+  text-align: left;
+  padding: 15px 30px 35px 30px;
+  width: 25%;
+}
+
+.popup-signin-account .far{
+    font-size: 25px;
+    margin-right: 25px;
+}
+
+.popup-signin-account{
+    padding-top: 20px;
+    text-transform: uppercase;
+    font-size: 25px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.popup-formsignIn{
+    margin-top: 30px;
+}
+
+.popup-signin-username, .popup-signin-password{
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.popup-signin-form-input{
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    width: 100%;
+    margin-bottom: 30px;
+    background: #f6f6f6;
+    border: 1px solid #c6c6c6;
+    color: black;
+}
+
+.popup-btn2{
+    padding-bottom: 10px;
+}
+
+.popup-btn-signin{
+    padding: 9px 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    background: #101820FF;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.popup-btn-signin:hover{
+    background: #616161;
+}
+
+.popup-signup-title{
+    font-size: 13px;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+
+.popup-text{
+    text-decoration: none;
+    color: #ff2121;
+    transition: all 0.3s ease;
+}
+
+.popup-text:hover{
+    text-decoration: underline;
+}
+
+.forgot{
+    font-size: 13px;
+    text-decoration: none;
+    color: #ff2121;
+    transition: all 0.3s ease;
+}
+
+.forgot:hover{
+    text-decoration: underline;
+
+

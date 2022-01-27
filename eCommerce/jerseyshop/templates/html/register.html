@@ -1,0 +1,43 @@
+{% extends 'html/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="small-container">
+    <div class="signUp">
+        {% if messages %}
+        <ul class="messages" id="msg">
+            {% for message in messages %}
+                {% if message.tags == 'error' %}
+                    <p class="alert error"> {{message}} </p>
+                {% elif message.tags == 'info' %}
+                    <p class="alert success"> {{message}} </p>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <h1 class="account">Create Account</h1>
+        <p class="redirect"> Already have an account? <a class="redirect-link" href="{% url 'login' %}">Login</a></p>
+        <form class="formsignUp" action="register" method="POST">
+            {% csrf_token %}
+            <p class="username">Username</p>
+            <input class="form1-input" type="text" name="username" id="username" placeholder="Username">
+
+            <p class="email">Email</p>
+            <input class="form1-input" type="email" name="email" id="email" placeholder="Email">
+
+
+            <p class="password">Password</p>
+            <input class="form1-input" type="password" name="password1" id="password1" placeholder="Password">
+
+            <p class="password">Re-type Password</p>
+            <input class="form1-input" type="password" name="password2" id="password2" placeholder="Confirm password">
+
+            <div class="btn2">
+                <button class="btn-signup">Sign up</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

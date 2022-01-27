@@ -1,0 +1,61 @@
+{% extends 'html/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<!-- Products Details  -->
+
+<div class="small-container single-product">
+    <div class="row-3">
+        <div class="col-2">
+            <div id="img-container">
+                <div id="lens"></div>
+                <img src="{{national_jersey.image.url}}" alt="" width="100%" id="featured">
+            </div>
+            <div class="small-img-row">
+                <div class="small-img-col">
+                    <img src="{{national_jersey.small_image1URL}}" alt="" width="100%" class="small-img thumbnail active">
+                </div>
+                <div class="small-img-col">
+                    <img src="{{national_jersey.small_image2URL}}" alt="" width="100%" class="small-img thumbnail">
+                </div>
+                <div class="small-img-col">
+                    <img src="{{national_jersey.small_image3URL}}" alt="" width="100%" class="small-img thumbnail">
+                </div>
+                <div class="small-img-col">
+                    <img src="{{national_jersey.small_image4URL}}" alt="" width="100%" class="small-img thumbnail">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-2">
+            <h1 class="title-txt">{{national_jersey.title}} <small>({{national_jersey.type}})</small></h1>
+            <h4>Tk. {{national_jersey.price}}</h4>
+            <h4 class="txt"><strong>Replica Or Authentic:</strong> {{national_jersey.authenticity}}</h4>
+            <h4 class="txt"><strong>Type of Team Badge:</strong> {{national_jersey.team_badge}}</h4>
+
+            <form action="" method="POST" enctype="multipart/form-data" class="form-input">
+                {% csrf_token %}
+                <div class="form">
+                    <div class="form-row-1">
+                        {% include 'html/form.html' with form=form %}
+                    </div>
+                    <div class="form-row-2">
+                        <h5 class="size-chart" id="myBtn">Size Chart</h5>
+                        <div id="myModal" class="modal">
+<!--                             Modal content -->
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <img id="image" src="{% static 'img/Size_Chart2.png' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button data-jersey="{{national_jersey.id}}" data-action="add" class="btn-1 update-cart" type="submit">Add To Cart</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
