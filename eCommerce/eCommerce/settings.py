@@ -81,17 +81,14 @@ WSGI_APPLICATION = "eCommerce.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "eCommerce",
-        "USER": "postgres",
-        "PASSWORD": "1234",
-        "HOST": "localhost",
+        "NAME": "df9a0soo03krdt",
+        "USER": "nikvhtqpjzbbbr",
+        "PASSWORD": "365dec5631d8e53a7d4ac7870fa9f254e8699996be1a41f8f75e372198bd1a37",
+        "HOST": "ec2-54-157-160-218.compute-1.amazonaws.com",
+        "PORT": "5432",
     }
 }
 
-import dj_database_url
-
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES["default"].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
