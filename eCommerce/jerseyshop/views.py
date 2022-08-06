@@ -46,8 +46,8 @@ def register(request):
                 user.save()
                 auth.login(request, user)
 
-                messages.info(request, "User successfully created")
-                return redirect('register')
+                # messages.info(request, "User successfully created")
+                return redirect('/')
         else:
             messages.error(request, "Password not matching")
             return redirect('register')
@@ -67,7 +67,7 @@ def login(request):
             return redirect('/')
         else:
             messages.info(request, "Wrong username or password")
-            # return redirect('login')
+            return redirect('login')
             # return HttpResponseRedirect('/')
     else:
         return render(request, 'html/login.html')
@@ -186,6 +186,8 @@ def national_jersey_details(request, national_jersey_id):
                 return redirect('cart')
         else:
             form = OrderItemForm()
+    else:
+        return redirect('login')
 
     context = {'form': form, 'national_jersey': national_jersey, 'cartItems': cartItems}
     return render(request, 'html/national_jersey_details.html', context)
@@ -213,6 +215,8 @@ def club_jersey_details(request, club_jersey_id):
                 # return redirect('cart')
         else:
             form = OrderItemForm()
+    else:
+        return redirect('login')
 
     context = {'form': form, 'club_jersey': club_jersey, 'cartItems': cartItems}
     return render(request, 'html/club_jersey_details.html', context)
