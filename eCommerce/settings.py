@@ -92,23 +92,23 @@ WSGI_APPLICATION = "eCommerce.wsgi.application"
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "dfbqhbb2l9h43s",
-        "USER": "tdweiuklgtnsdf",
-        "PASSWORD": "654d219639dc5efd30b511be76f5706985fc831022d8935aafd80e0fa871c5c5",
-        "HOST": "ec2-44-195-100-240.compute-1.amazonaws.com",
-        "PORT": '5432',
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "dfbqhbb2l9h43s",
+#         "USER": "tdweiuklgtnsdf",
+#         "PASSWORD": "654d219639dc5efd30b511be76f5706985fc831022d8935aafd80e0fa871c5c5",
+#         "HOST": "ec2-44-195-100-240.compute-1.amazonaws.com",
+#         "PORT": '5432',
+#     }
+# }
 
 import dj_database_url
 
