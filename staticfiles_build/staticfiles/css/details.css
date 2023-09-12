@@ -1,0 +1,226 @@
+.single-product{
+    margin-top: 100px;
+}
+
+.col-2{
+    flex-basis: 50%;
+    min-width: 300px;
+}
+
+.col-2 img{
+    max-width: 100%;
+    padding: 50px 0;
+}
+
+.col-2 h1{
+    font-size: 50px;
+    line-height: 60px;
+    margin: 25px 0;
+}
+
+.single-product .col-2 img{
+    padding: 0;
+}
+
+.single-product .col-2 .form-input{
+    margin-top: 30px;
+}
+
+.single-product .col-2{
+    padding: 20px;
+}
+
+.single-product .title-txt{
+    font-size: 20px;
+    line-height: normal;
+    margin: 0;
+    font-family: Montserrat;
+    text-transform: uppercase;
+    margin-top: 25px;
+}
+
+.single-product .title-txt small{
+    font-size: 15px;
+    text-transform: lowercase;
+}
+
+.single-product h4{
+    margin: 20px 0;
+    font-size: 22px;
+    color: #a96000;
+}
+
+.single-product .txt{
+    font-size: 15px;
+    color: black;
+    margin: 0px;
+}
+
+.single-product select{
+    display: block;
+    padding: 7px;
+    margin-top: 10px;
+    font-size: 14px;
+    outline: none;
+}
+
+.single-product input{
+    width: 109px;
+    height: 40px;
+    padding-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    display: block;
+    font-family: 'Montserrat';
+    font-size: 16px;
+}
+
+input:focus{
+    outline: none;
+}
+
+.small-img-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.small-img-col{
+    flex-basis: 24%;
+    cursor: pointer;
+}
+
+.btn-1{
+    display: inline-block;
+    color: white;
+    background: #101820FF;
+    padding: 10px 30px;
+    margin: 30px 0;
+    /* border-radius: 30px; */
+    transition: background .5s;
+    cursor: pointer;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    font-family: 'Montserrat';
+    border: none;
+}
+
+.btn-1:hover{
+    color: #f2aa4cff;
+}
+
+.row-3{
+    display: flex;
+    /* align-items: center; */
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.quantity{
+    margin-top: 25px;
+    font-family: 'Montserrat';
+    font-size: 14px;
+}
+
+.size{
+    display: flex;
+    justify-content: space-between;
+}
+
+.size-chart{
+    text-decoration: underline;
+    cursor: pointer;
+    color: black;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+}
+
+/* The Close Button */
+.close{
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form{
+    display: flex;
+}
+
+.form-row-1{
+    width: 50%;
+}
+
+.form-row-2{
+    width: 50%;
+    text-align: right;
+}
+
+.form-group{
+    margin-bottom: 15px;
+}
+
+label{
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.img-magnifier-container {
+  position:relative;
+}
+
+.img-magnifier-glass {
+  position: absolute;
+  border: 1px solid #000;
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 200px;
+  height: 200px;
+}
+
+
+#img-container{
+	z-index: 1;
+	position: relative;
+}
+
+#lens{
+	z-index: 2;
+	position: absolute;
+    height: 125px;
+	width: 125px;
+	border:2px solid black;
+	background-repeat: no-repeat;
+	cursor: none;
+
+}

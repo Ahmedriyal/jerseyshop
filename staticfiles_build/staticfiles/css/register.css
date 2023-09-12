@@ -1,0 +1,89 @@
+.signUp{
+    padding-top: 35px;
+    padding-left: 10px;
+}
+
+.account{
+    text-transform: uppercase;
+    font-size: 30px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.redirect{
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.redirect-link{
+    text-decoration: none;
+    cursor: pointer;
+    color: #aa9964;
+}
+
+.formsignUp{
+    margin-top: 20px;
+}
+
+.username, .email, .password{
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.form1-input{
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    width: 35%;
+    margin-bottom: 15px;
+    background: #f6f6f6;
+    border: 1px solid #c6c6c6;
+    color: black;
+}
+
+.btn2{
+    margin-top: 10px;
+}
+
+.btn-signup{
+    padding: 9px 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    background: #101820FF;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-signup:hover{
+    background: #616161;
+}
+
+.alert {
+    padding: 10px;
+    background-color: rgb;
+    color: white;
+    border-radius: -6px;
+    width: 35%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
+.error{
+    background-color: rgb(255 0 0 / 60%);
+    border: 2px solid #ff2c2c73;
+}
+
+.success{
+    background-color: rgb(0 160 57 / 65%);
+    border: 2px solid #00800045;
+}

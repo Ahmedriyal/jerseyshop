@@ -1,0 +1,9 @@
+.result-title{
+    padding: 10px;
+    text-transform: uppercase;
+    text-align: left;
+    letter-spacing: 3px;
+    /* font-size: 40px; */
+    margin-top: 150px;
+    margin-bottom: 20px;
+}
